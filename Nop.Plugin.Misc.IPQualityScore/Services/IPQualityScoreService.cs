@@ -427,7 +427,7 @@ namespace Nop.Plugin.Misc.IPQualityScore.Services
             if (_iPQualityScoreSettings.AllowCrawlers && response.IsCrawler)
                 return response.Success;
 
-            return response.Success && !isFraud;
+            return response.Success && !isFraud && !isProxy && !isVpn && !isTor;
         }
 
         private bool IsValidTransactionalResponse(IPReputationResponse response)
